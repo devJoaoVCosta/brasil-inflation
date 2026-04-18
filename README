@@ -1,0 +1,118 @@
+# 🇧🇷 Inflação Brasil — Dashboard Analítico
+
+> Dashboard interativo com a evolução histórica dos índices de inflação no Brasil de 1980 a 2023, incluindo IPCA, INPC, IPA, IPC-FIPE, INCC, SELIC e Salário Mínimo.
+
+---
+
+## 📊 Visão geral
+
+Este projeto visualiza mais de 40 anos de dados macroeconômicos brasileiros, permitindo analisar o impacto da hiperinflação dos anos 80 e 90, o Plano Real, as crises econômicas, a política monetária do BACEN e a evolução do poder de compra do trabalhador.
+
+---
+
+## 📐 Indicadores
+
+| Indicador | Descrição |
+|-----------|-----------|
+| **IPCA** | Índice Nacional de Preços ao Consumidor Amplo (IBGE) |
+| **INPC** | Índice Nacional de Preços ao Consumidor (IBGE) |
+| **IPA** | Índice de Preços por Atacado (FGV) |
+| **IPC-FIPE** | Índice de Preços ao Consumidor — FIPE |
+| **INCC** | Índice Nacional de Custo da Construção (FGV) |
+| **SELIC** | Taxa básica de juros — meta do BACEN |
+| **Juros Reais** | SELIC deflacionada pelo IPCA |
+| **Salário Mínimo** | Evolução nominal e deflacionada |
+
+---
+
+## 📉 Visualizações
+
+| Aba | Gráficos |
+|-----|----------|
+| **Evolução Temporal** | Linha mensal/anual com eventos históricos, Top 10 IPCAs, Heatmap mês × ano |
+| **Comparação de Índices** | Acumulado anual agrupado, diferença IPCA×INPC, boxplot por era, scatter IPCA×INPC |
+| **SELIC & Juros Reais** | SELIC vs IPCA 12m (eixo duplo), juros reais ex-post, SELIC histórica por ano |
+| **Salário Mínimo** | Evolução nominal (log), variação real vs IPCA, poder de compra deflacionado |
+
+---
+
+## 🗓️ Eras econômicas analisadas
+
+| Era | Período | Característica |
+|-----|---------|----------------|
+| Hiperinflação | 1980–1993 | Pré-Plano Real, inflação > 1.000% ao ano |
+| Pós-Plano Real | 1994–2002 | Estabilização, ainda com choques externos |
+| Boom | 2003–2010 | Crescimento acelerado, commodities em alta |
+| Nova Matriz | 2011–2016 | Expansão fiscal, recessão de 2015 |
+| Recente | 2017–2023 | Reformas, COVID-19, pico pós-pandemia |
+
+---
+
+## 🛠️ Tecnologias
+
+- [Python 3.10+](https://www.python.org/)
+- [Streamlit](https://streamlit.io/)
+- [Plotly](https://plotly.com/python/)
+- [Pandas](https://pandas.pydata.org/)
+- [NumPy](https://numpy.org/)
+
+---
+
+## 🚀 Como rodar localmente
+
+**1. Clone o repositório**
+```bash
+git clone https://github.com/devJoaoVCosta/inflacao-brasil.git
+cd inflacao-brasil
+```
+
+**2. Instale as dependências**
+```bash
+pip install -r requirements.txt
+```
+
+**3. Coloque o dataset na pasta do projeto**
+
+Baixe `inflacao.csv` no [Kaggle](https://www.kaggle.com/datasets/fidelissauro/inflacao-brasil/data) e coloque na mesma pasta que `inflacao_brasil.py`.
+
+**4. Execute o dashboard**
+```bash
+python -m streamlit run inflacao_brasil.py
+```
+
+Acesse em `http://localhost:8501`
+
+---
+
+## 📁 Estrutura do projeto
+
+```
+inflacao-brasil/
+├── inflacao_brasil.py      # App principal Streamlit
+├── requirements.txt        # Dependências Python
+├── inflacao.csv            # Dataset (Kaggle)
+├── dashboard_preview.png   # Screenshot do dashboard
+└── README.md               # Este arquivo
+```
+
+---
+
+## 🗂️ Dataset
+
+- **Fonte:** [Kaggle — Índices de Inflação Brasil](https://www.kaggle.com/datasets/fidelissauro/inflacao-brasil/data)
+- **Autor:** fidelissauro
+- **Período:** Janeiro 1980 – Dezembro 2023
+- **Registros:** 521 linhas × 26 colunas
+- **Granularidade:** Mensal
+
+---
+
+## 🎨 Design
+
+O dashboard utiliza uma paleta escura customizada com as cores institucionais do projeto:
+
+| Cor | Hex | Uso |
+|-----|-----|-----|
+| Azul principal | `#1591EA` | Destaque, KPIs, linhas |
+| Cinza | `#898989` | Texto secundário, grades |
+| Branco | `#FFFFFF` | Texto principal, valores |
